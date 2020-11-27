@@ -8,28 +8,48 @@ export default function App() {
   const [discount,setDiscount]=useState('');
   const [save,setSave]=useState('');
   const [fprice,setFprice]=useState('');
+  function  discountCa(price,discount){
 
-  const Usave=(Price,Discount)=>{
+      var dis=price*(discount/100);
+      return dis;
 
-    
+  }
+  const fpri=()=>{
+
+    setFprice(price-discountCa(price,discount));
+
 
 
 
   }
+  const saving=()=>{
+    setSave(discountCa);
+
+
+
+
+  }
+  
 
   return (
     <View style={styles.container}>
       <Text>Enter Price</Text>
       <TextInput
       style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-      onChangeText={text => setPrice(text)}
+      onChangeText={price => setPrice(price)}
       value={price}
     />
+    <Text>Enter Discount</Text>
     <TextInput
       style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-      onChangeText={text => setDiscount(text)}
+      onChangeText={discount => setDiscount(discount)}
       value={discount}
     />
+
+    <Button  title="Cal"
+    onPress={()=>{discountCa(price,discount)}}/>
+<Text>finalprice: {fprice} </Text>
+<Text>USave: {save}</Text>
 
 
        
